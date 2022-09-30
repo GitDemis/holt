@@ -23,7 +23,6 @@ jobs:
         uses: azure/appservice-build@v2
         with:
           platform: node
-          platform-version: Node 16
           source-directory: .
           output-directory: .
 
