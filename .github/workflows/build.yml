@@ -18,7 +18,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
           
       - name: 'Login via Azure CLI'
         uses: azure/login@v1
@@ -29,7 +29,7 @@ jobs:
         with:
           login-server: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - run: |
           docker build . -t gitdemis/nodejssampleapp:${{ github.sha }}
           docker push gitdemis/nodejssampleapp:${{ github.sha }}
@@ -44,7 +44,7 @@ jobs:
           cpu: 1   #Optional
           memory: 0.1   #Optional
           registry-username: ${{ secrets.DOCKER_USERNAME }}
-          registry-password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+          registry-password: ${{ secrets.DOCKER_PASSWORD }}
           name: getdemisweb1
           location: 'west us'
         
