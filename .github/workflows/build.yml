@@ -23,9 +23,6 @@ jobs:
         uses: azure/appservice-build@v2
         with:
           platform: nodejs
-          
-      - name: test
-        run: npm run test --if-present
 
       - name: Deploying web app to Azure
         uses: azure/webapps-deploy@v1
